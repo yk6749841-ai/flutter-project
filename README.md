@@ -1,17 +1,41 @@
-# icon_app
+# Recipe Master 🍳 - אפליקציית מתכונים מודרנית ב-Flutter
 
-A new Flutter project.
+אפליקציית מובייל מודרנית וססגונית לחשיפת מתכונים מכל העולם, המבוססת על תקשורת נתונים בזמן אמת מול שרת חיצוני (API). הפרויקט פותח במסגרת מטלת הגשה ב-Flutter & Dart.
 
-## Getting Started
+## 🚀 תכונות מרכזיות (Features)
 
-This project is a starting point for a Flutter application.
+* **חיפוש מתכונים דינמי:** המשתמש מקליד סוג מאכל באנגלית (למשל: *chicken, cake, sushi*), והאפליקציה שולפת את התוצאות הרלוונטיות ביותר באופן מיידי.
+* **תצוגת רשת חתיכה (Grid View):** תוצאות החיפוש מוצגות בעיצוב מודרני בשני טורים (כרטיסיות בסגנון Pinterest) הכוללות תמונה, שם המנה והקטגוריה שלה.
+* **מערכת דירוג ופופולריות (Rating System):** אלמנט חוויית משתמש (UI) המציג דירוג כוכבים ומספר משתמשים ייחודי לכל מתכון (באמצעות אלגוריתם הדמיית נתונים מבוסס מפתח המנה).
+* **פירוט מתכון מורחב (Recipe Details Popup):** בלחיצה על מנה נפתח חלון דיאלוג (Dialog) מעוצב המציג:
+  * 🥗 **רכיבים וכמויות (Ingredients):** איסוף ופענוח דינמי של רשימת המצרכים והכמויות שלהם מתוך ה-API.
+  * 👨‍🍳 **הוראות הכנה (Instructions):** פירוט מלא של שלבי הבישול וההכנה.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## 🛠️ טכנולוגיות וכלים (Tech Stack)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* **Framework:** Flutter (Material 3 Design)
+* **Language:** Dart
+* **Networking & API:** `http` package (עבור בקשות GET מהאינטרנט)
+* **Data Format:** JSON Parsing & Decoding
+* **API Source:** [TheMealDB API](https://www.themealdb.com/)
+
+---
+
+## 💻 ארכיטקטורת הקוד ומבנה הנתונים
+
+האפליקציה בנויה בצורה נקייה בקובץ `main.dart` ומבוססת על רכיב מסוג `StatefulWidget` לניהול מצב האפליקציה בזמן טעינת הנתונים (`isLoading`).
+
+### פענוח הנתונים (JSON Parsing):
+מבנה הנתונים שמתקבל מהשרת מכיל שדות מפוזרים עבור הרכיבים (`strIngredient1` עד `strIngredient20`). הקוד מבצע לולאה חכמה (`getIngredients`) שאוספת רק את הרכיבים הקיימים ומחברת אותם לכמויות שלהם (`strMeasure`) ליצירת רשימה מגובשת אחת.
+
+---
+
+## 🏃‍♂️ איך להריץ את הפרויקט (Setup & Installation)
+
+1. ודא שסביבת הפיתוח של **Flutter SDK** מותקנת ומוגדרת במחשב.
+2. פתח את תיקיית הפרויקט בתוך **VS Code**.
+3. פתח את הטרמינל (Terminal) והתקן את חבילת התקשורת על ידי הרצת הפקודה:
+   ```bash
+   flutter pub add http
